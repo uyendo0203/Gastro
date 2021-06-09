@@ -1,5 +1,17 @@
+
+// form 
 function isValidForm(form) {
     isValid = true;
+    var REX_IS_NUMBER = new RegExp('^[0-9]*$');
+    var REX_LOWERCASE = new RegExp('(?=.*[a-z])');
+    var REX_UPPERCASE = new RegExp('(?=.*[A-Z])');
+    var REX_NUMBER = new RegExp('(?=.*[0-9])');
+    var REX_SPECIAL = new RegExp('(?=.[!@#\$%\^&])');
+    var REX_INTERGER = new RegExp('^[0-9]*$');
+    var REX_PHONE = new RegExp('^(0|84)[0-9]*$');
+    var REX_EMAIL = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    var REX_URL = new RegExp(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i);
+
 
     form.forEach(function (input) {
         var value = $(input.name).val();
@@ -62,30 +74,8 @@ function validateForm($submit, form) {
     });
     updateView();
 }
-$(window).on("load", function () {
 
-    var REX_IS_NUMBER = new RegExp('^[0-9]*$');
-    var REX_LOWERCASE = new RegExp('(?=.*[a-z])');
-    var REX_UPPERCASE = new RegExp('(?=.*[A-Z])');
-    var REX_NUMBER = new RegExp('(?=.*[0-9])');
-    var REX_SPECIAL = new RegExp('(?=.[!@#\$%\^&])');
-    var REX_INTERGER = new RegExp('^[0-9]*$');
-    var REX_PHONE = new RegExp('^(0|84)[0-9]*$');
-    var REX_EMAIL = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    var REX_URL = new RegExp(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i);
 
-    new WOW().init();
-    $('.loading').removeClass('active')
-    Menu()
-});
-
-$(window).on("scroll", function () {
-
-});
-
-$(window).on("resize", function () {
-
-});
 
 let PopupValidateForm = function () {
     var form = [{
@@ -107,19 +97,75 @@ let PopupValidateForm = function () {
     validateForm($submit, form);
 }
 
-let Menu = function () {
-    $('.menu__nav-item a').click(function (e) {
-        e.preventDefault();
+let sliderHome1 = function () {
+    if ($(".home1__slider").length === 0) {
+        return false
+    }
 
-        let link = $(this).attr('link')
+    $(".home1__slider").slick({
+        arrows: true,
+        dots: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+    });
 
-        $('.menu__nav-item a').removeClass('active');
-        $('.menu__nav-item a[link="' + link + '"]').addClass('active');
+}
+let sliderHome2 = function () {
+    if ($(".home2__slider").length === 0) {
+        return false
+    }
 
+    $(".home2__slider").slick({
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+    });
+}
+let sliderHome4 = function () {
+    if ($(".home4__bottom--slider").length === 0) {
+        return false
+    }
 
-        if (link != '' && link != undefined) {
-            goToByScroll(link);
-        }
-    })
+    $(".home4__bottom--slider").slick({
+        arrows: true,
+        dots: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+    }).on('afterChange', function (event, slick) {
+        $('.home4__bottom--img .img').removeClass('active')
+        $('.home4__bottom--img .img[data-slide=' + slick.currentSlide + ']').addClass('active')
+    });;
 }
 
+$(window).on("load", function () {
+    new WOW().init();
+    $('.loading').removeClass('active')
+
+    sliderHome1()
+    sliderHome2()
+    sliderHome4()
+});
+
+$(window).on("scroll", function () {
+    let headerHeight = $('.header').height()
+    let windowHeight = $(window).scrollTop()
+    if (windowHeight > (headerHeight + 10)) {
+        $('.header').addClass('fixed')
+    } else {
+        $('.header').removeClass('fixed')
+    }
+});
+
+$(window).on("resize", function () {
+
+});
