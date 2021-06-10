@@ -143,13 +143,13 @@ button {
 .mb {
     display: none;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
         display: block !important;
     }
 }
 
 .pc {
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
         display: none !important;
     }
 }
@@ -542,28 +542,32 @@ button {
         }
     }
     &-social {
-        @include flexbox;
-        @include align-items(center);
         position: absolute;
         right: 1.563vw;
-        a {
-            width: 1.979vw;
-            height: 1.979vw;
-            @include flexbox;
-            @include align-items(center);
-            border-radius: 50%;
-            background-color: #fff;
-            &:hover {
-                img {
-                    transform: scale(0.85);
-                }
-            }
+        @extend .socical;
+    }
+}
+
+.socical {
+    @include flexbox;
+    @include align-items(center);
+    a {
+        width: 1.979vw;
+        height: 1.979vw;
+        @include flexbox;
+        @include align-items(center);
+        border-radius: 50%;
+        background-color: #fff;
+        &:hover {
             img {
-                transition: all 0.2s ease;
+                transform: scale(0.85);
             }
-            &:not(:last-child) {
-                margin-right: 1.146vw;
-            }
+        }
+        img {
+            transition: all 0.2s ease;
+        }
+        &:not(:last-child) {
+            margin-right: 1.146vw;
         }
     }
 }
@@ -581,6 +585,9 @@ button {
             display: inline-block;
             max-width: 113px;
             width: 100%;
+        }
+        @media (max-width: 1024px) {
+            margin-bottom: 20px;
         }
     }
     &-menu {
@@ -625,6 +632,21 @@ button {
         color: #fff;
     }
     &-normal {
-        background-image: url(../assets/images/btn-bg.png);
+        background: linear-gradient(90deg, #0467a2 0%, #17326e 100%);
+        border-radius: 30px;
+        &:hover {
+            background: linear-gradient(90deg, #17326e 0%, #0467a2 100%);
+        }
+    }
+    &-white {
+        color: #000;
+        background-color: #fff;
+        border-radius: 26px;
+        box-shadow: 2px 3px 6px #000000a6;
+        margin-bottom: 13px;
+        &:hover {
+            color: #000;
+            text-decoration: underline;
+        }
     }
 }

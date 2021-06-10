@@ -1,5 +1,15 @@
 /*use : @include {mixin-name}*/
-
+@mixin your_slider_wrapper {
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 1s ease;
+}
+@mixin your_slider_wrapper_done {
+	visibility: visible;
+	opacity: 1;
+	height: auto;
+}
 /*transform*/
 @mixin transform($value) {
 	-webkit-transform: $value;
