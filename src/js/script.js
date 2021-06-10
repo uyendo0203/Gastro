@@ -167,10 +167,18 @@ let sliderHome6 = function () {
     });;
 }
 
-$(window).on("load", function () {
-    new WOW().init();
-    $('.loading').removeClass('active')
+let MenuToggleMB = function () {
+    $('.header-menu__mb').click(function () {
+        $(this).toggleClass('active')
+        $('.header-menu__nav').toggleClass('active')
+    })
+}
 
+$(window).on("load", function () {
+    $('.loading').removeClass('active')
+    new WOW().init();
+
+    MenuToggleMB()
     sliderHome1()
     sliderHome2()
     sliderHome4()

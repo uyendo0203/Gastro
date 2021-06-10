@@ -47,17 +47,33 @@ button {
         max-width: 1320px;
     }
 }
+.mb {
+    display: none;
 
+    @media (max-width: 767px) {
+        display: block !important;
+    }
+}
+
+.pc {
+    @media (max-width: 767px) {
+        display: none !important;
+    }
+}
 .modal {
     padding: 0 !important;
 }
 
 .main_wapper {
-    @media (max-width: 1024px) {
+    @media (max-width: 767px) {
         overflow: hidden;
     }
 }
-
+.main_content {
+    @media (max-width: 767px) {
+        margin-top: 56px;
+    }
+}
 .loading {
     background: #00000057;
     top: 0;
@@ -100,7 +116,7 @@ button {
     padding-left: 10px;
     color: #444648;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 767px) {
         height: 45px;
     }
 
@@ -138,19 +154,6 @@ button {
 
     &::before {
         display: none;
-    }
-}
-.mb {
-    display: none;
-
-    @media (max-width: 1024px) {
-        display: block !important;
-    }
-}
-
-.pc {
-    @media (max-width: 1024px) {
-        display: none !important;
     }
 }
 
@@ -329,12 +332,40 @@ button {
     }
 }
 
+.socical {
+    @include flexbox;
+    @include align-items(center);
+    a {
+        width: 1.979vw;
+        height: 1.979vw;
+        @include flexbox;
+        @include align-items(center);
+        border-radius: 50%;
+        background-color: #fff;
+        @media (max-width: 767px) {
+            width: 25px;
+            height: 25px;
+        }
+        &:hover {
+            img {
+                transform: scale(0.85);
+            }
+        }
+        img {
+            transition: all 0.2s ease;
+        }
+        &:not(:last-child) {
+            margin-right: 1.146vw;
+        }
+    }
+}
+
 .header {
-    @include box-shadow(0 5px 15px #0000000d);
+    @include box-shadow(0 0.26vw 0.781vw #0000000d);
     @include transition(all 0.3s ease);
     text-align: center;
     background-color: #0b2c62e6;
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.052vw solid #fff;
     position: fixed;
     width: 100%;
     z-index: 999;
@@ -347,11 +378,15 @@ button {
         }
 
         .header-logo {
-            max-width: 140px;
+            width: 7.292vw;
+            @media (max-width: 767px) {
+                max-width: 100px;
+                width: 100%;
+            }
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 767px) {
         top: 0;
     }
 
@@ -366,8 +401,9 @@ button {
         margin-right: auto;
         transition: all 0.3s ease;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 767px) {
             padding: 15px;
+            width: 100%;
         }
     }
 
@@ -377,7 +413,8 @@ button {
         display: inline-block;
 
         @media (max-width: 767px) {
-            max-width: 130px;
+            max-width: 120px;
+            width: 100%;
         }
     }
 
@@ -388,7 +425,7 @@ button {
         margin-left: auto;
         .btn {
             color: #fff;
-            @media (max-width: 1024px) {
+            @media (max-width: 767px) {
                 margin-right: 10px;
             }
         }
@@ -400,26 +437,26 @@ button {
         margin: 0;
         @include transition(all 0.2s ease);
 
-        @media (max-width: 1024px) {
+        @media (max-width: 767px) {
             @include flexbox;
             @include flex-direction(column);
             @include align-items(flex-start);
             @include transition(all 0.2s ease);
             position: fixed;
             height: 100vh;
-            background: #ddf2f5;
+            background: #163571d6;
             top: 0;
             right: 0;
             margin: 0;
             opacity: 0;
             z-index: -1;
-            padding-top: 50px;
+            padding-top: 70px;
         }
 
         &.active {
             z-index: 9;
             opacity: 1;
-            width: 250px;
+            width: 55%;
 
             li {
                 display: block;
@@ -432,7 +469,7 @@ button {
             list-style: none;
             margin: 0 1.042vw;
             position: relative;
-            @media (max-width: 1024px) {
+            @media (max-width: 767px) {
                 margin: 8px 20px;
                 display: none;
             }
@@ -445,25 +482,19 @@ button {
             a {
                 text-transform: uppercase;
                 font-size: 0.885vw;
+                @media (max-width: 767px) {
+                    font-size: 14px;
+                }
             }
             &.active,
             &:hover {
-                @media (max-width: 1024px) {
-                    padding-bottom: 8px;
-                }
-
                 &::before {
                     background-color: #fff;
-                    height: 1px;
+                    height: 0.052vw;
                     width: 100%;
                     bottom: 1px;
                     left: 50%;
                     @include transform(translateX(-50%));
-
-                    @media (max-width: 1024px) {
-                        height: 3px;
-                        bottom: 0;
-                    }
                 }
             }
         }
@@ -482,13 +513,13 @@ button {
         z-index: 1;
         cursor: pointer;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 767px) {
             @include flexbox;
             @include align-items(center);
         }
 
         &.active {
-            @media (max-width: 1024px) {
+            @media (max-width: 767px) {
                 z-index: 10;
             }
         }
@@ -497,16 +528,21 @@ button {
             @include flexbox;
             @include flex-direction(column);
 
-            @media (max-width: 1024px) {
+            @media (max-width: 767px) {
                 margin-top: 0.2vw;
             }
 
             .line {
                 background-color: #fff;
                 transition: all 0.2s ease;
-                height: 2px;
-                width: 18px;
-                margin-bottom: 3px;
+                height: 0.104vw;
+                width: 0.938vw;
+                margin-bottom: 0.156vw;
+                @media (max-width: 767px) {
+                    height: 1px;
+                    width: 18px;
+                    margin-bottom: 2px;
+                }
 
                 &:last-child {
                     margin-bottom: 0;
@@ -528,46 +564,29 @@ button {
                 @include transform(rotate(45deg) translateY(0.104vw) translateX(0.052vw));
 
                 // @include transform(rotate(45deg) translateY(2px) translateX(1px));
-                @media (max-width: 1024px) {
-                    @include transform(rotate(45deg) translateY(3px) translateX(3px));
+                @media (max-width: 767px) {
+                    @include transform(rotate(45deg) translateY(1px) translateX(2px));
                 }
             }
         }
 
         .text {
-            padding-right: 8px;
-            font-size: 16px;
+            padding-right: 0.417vw;
+            font-size: 0.833vw;
             text-transform: uppercase;
             color: #fff;
+            @media (max-width: 767px) {
+                font-size: 13px;
+            }
         }
     }
     &-social {
         position: absolute;
         right: 1.563vw;
         @extend .socical;
-    }
-}
-
-.socical {
-    @include flexbox;
-    @include align-items(center);
-    a {
-        width: 1.979vw;
-        height: 1.979vw;
-        @include flexbox;
-        @include align-items(center);
-        border-radius: 50%;
-        background-color: #fff;
-        &:hover {
-            img {
-                transform: scale(0.85);
-            }
-        }
-        img {
-            transition: all 0.2s ease;
-        }
-        &:not(:last-child) {
-            margin-right: 1.146vw;
+        @media (max-width: 767px) {
+            position: static;
+            margin-right: 10px;
         }
     }
 }
@@ -577,44 +596,52 @@ button {
         @include align-items(center);
         @include flex-wrap(wrap);
         @include justify-content(space-between);
-        padding-top: 14px;
-        padding-bottom: 18px;
+        padding-top: 0.729vw;
+        padding-bottom: 0.938vw;
+        @media (max-width: 767px) {
+            padding: 40px 0;
+        }
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
     }
     &-logo {
-        a {
-            display: inline-block;
-            max-width: 113px;
-            width: 100%;
-        }
-        @media (max-width: 1024px) {
-            margin-bottom: 20px;
+        display: inline-block;
+        width: 5.885vw;
+        @media (max-width: 767px) {
+            width: 112px;
+            margin-bottom: 30px;
         }
     }
     &-menu {
         margin-bottom: 0;
         list-style: none;
         padding: 0;
-        @media (max-width: 1024px) {
+        @media (max-width: 767px) {
             @include flex-direction(column);
         }
         a {
             color: inherit;
         }
         li {
-            font-size: 20px;
+            font-size: 1.042vw;
             color: #000000;
             font-family: $SVN-Gotham-Book;
+            @media (max-width: 767px) {
+                font-size: 16px;
+                margin-bottom: 7px;
+            }
             &:not(:last-child) {
-                margin-right: 65px;
+                margin-right: 3.385vw;
             }
         }
     }
 }
 
 .btn-g {
-    min-width: 255px;
-    font-size: 20px;
-    padding: 12px 15px;
+    min-width: 13.281vw;
+    font-size: 1.042vw;
+    padding: 1.042vw 0.781vw;
     font-family: $SVN-Gotham-Bold;
     text-transform: uppercase;
     text-align: center;
@@ -627,13 +654,25 @@ button {
     background-color: transparent;
     display: inline-block;
     color: #fff;
+
+    @media (max-width: 767px) {
+        min-width: 130px;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    @media (max-width: 767px) {
+        font-size: 12px;
+    }
     &:hover {
         text-decoration: underline;
         color: #fff;
     }
     &-normal {
         background: linear-gradient(90deg, #0467a2 0%, #17326e 100%);
-        border-radius: 30px;
+        border-radius: 2vw;
+        @media (max-width: 767px) {
+            border-radius: 20px;
+        }
         &:hover {
             background: linear-gradient(90deg, #17326e 0%, #0467a2 100%);
         }
@@ -641,9 +680,15 @@ button {
     &-white {
         color: #000;
         background-color: #fff;
-        border-radius: 26px;
-        box-shadow: 2px 3px 6px #000000a6;
-        margin-bottom: 13px;
+        border-radius: 2vw;
+        box-shadow: 0.104vw 0.156vw 0.313vw #000000a6;
+        margin-bottom: 0.677vw;
+
+        @media (max-width: 767px) {
+            border-radius: 20px;
+            box-shadow: 0.104vw 0.156vw 0.313vw #000000a6;
+            margin-bottom: 10px;
+        }
         &:hover {
             color: #000;
             text-decoration: underline;
