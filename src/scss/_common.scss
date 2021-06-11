@@ -38,15 +38,7 @@ button {
         box-shadow: none;
     }
 }
-@media (min-width: 1200px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1320px;
-    }
-}
+
 .mb {
     display: none;
 
@@ -444,34 +436,76 @@ button {
             @include transition(all 0.2s ease);
             position: fixed;
             height: 100vh;
-            background: #163571d6;
+            background: #163571f0;
             top: 0;
             right: 0;
             margin: 0;
             opacity: 0;
             z-index: -1;
             padding-top: 70px;
+            width: 0;
         }
 
         &.active {
             z-index: 9;
             opacity: 1;
             width: 55%;
+            a {
+                text-align: left;
+                transition: all 0.2s ease;
+                transform: translateX(0);
+                &:nth-child(2) {
+                    transition-delay: 0.1s;
+                }
 
-            li {
-                display: block;
+                &:nth-child(3) {
+                    transition-delay: 0.2s;
+                }
+
+                &:nth-child(4) {
+                    transition-delay: 0.3s;
+                }
+
+                &:nth-child(5) {
+                    transition-delay: 0.4s;
+                }
+
+                &:nth-child(6) {
+                    transition-delay: 0.5s;
+                }
+
+                &:nth-child(7) {
+                    transition-delay: 0.6s;
+                }
+
+                &:nth-child(8) {
+                    transition-delay: 0.7s;
+                }
+
+                &:nth-child(9) {
+                    transition-delay: 0.8s;
+                }
             }
         }
 
-        li {
+        a {
             @include flexbox;
             @include align-items(center);
             list-style: none;
             margin: 0 1.042vw;
             position: relative;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-transform: uppercase;
+            font-size: 0.885vw;
+
+            transition: all 0.2s ease;
+
             @media (max-width: 767px) {
-                margin: 8px 20px;
-                display: none;
+                margin: 10px 20px;
+                font-size: 14px;
+                @include transform(translateX(50%));
             }
             &::before {
                 position: absolute;
@@ -479,13 +513,7 @@ button {
                 transition: all 0.2s ease;
                 width: 0;
             }
-            a {
-                text-transform: uppercase;
-                font-size: 0.885vw;
-                @media (max-width: 767px) {
-                    font-size: 14px;
-                }
-            }
+
             &.active,
             &:hover {
                 &::before {
@@ -502,12 +530,8 @@ button {
         .btn:hover {
             color: #fff;
         }
-
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
     }
+
     &-menu__mb {
         display: none;
         z-index: 1;
@@ -592,17 +616,17 @@ button {
 }
 
 .footer {
+    padding: 0.729vw 18vw 0.938vw 18vw;
+    @media (max-width: 767px) {
+        padding: 35px;
+    }
     &-wrap {
         @include align-items(center);
         @include flex-wrap(wrap);
         @include justify-content(space-between);
-        padding-top: 0.729vw;
-        padding-bottom: 0.938vw;
-        @media (max-width: 767px) {
-            padding: 40px 0;
-        }
         @media (max-width: 480px) {
-            flex-direction: column;
+            @include flex-direction(column);
+            @include align-items(flex-start);
         }
     }
     &-logo {
@@ -664,7 +688,6 @@ button {
         font-size: 12px;
     }
     &:hover {
-        text-decoration: underline;
         color: #fff;
     }
     &-normal {
