@@ -1,0 +1,79 @@
+{% set page_title = 'Gastros - Menu' %}
+{% extends "../elements/_base.twig" %}
+
+{% block content %}
+
+{% include "../elements/_header.twig" %}
+<div class="container">
+    <div class="menu-page" style="padding-top:50px">
+        <h3>Pages</h3>
+        <ul>
+            {% set menu = [
+            {link: "home" },
+            ] %}
+            {% for link in menu %}
+            <li>
+                <a target="_blank" href="{{ link.link }}.html">{{ link.link }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <h3>Components</h3>
+        <div class="card">
+            <div class="card-body">
+                <a href="#" class="btn-g btn-g-normal">xem thêm</a>
+                <button class="btn-g btn-g-normal">xem thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .menu-page ul {
+        padding: 20px 30px;
+        margin: 0;
+        list-style: none;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .menu-page ul li {
+        margin: 10px 0;
+        padding-left: 25px;
+        position: relative;
+        width: 30%;
+    }
+
+    .menu-page ul li::before {
+        background-color: rgb(226, 184, 76);
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 10px;
+        left: 3px;
+        top: 6px;
+    }
+
+    .menu-page ul li::after {
+        border: #e3ba54 1px solid;
+        background: #fff;
+        position: absolute;
+        content: '';
+        width: 9px;
+        height: 9px;
+        left: 0;
+        top: 5px;
+    }
+
+    .menu-page ul a {
+        color: #000;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+        font-size: 16px;
+    }
+
+    .menu-page ul a:hover {
+        color: #6d30ab;
+    }
+</style>
+{% endblock %}

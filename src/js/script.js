@@ -146,7 +146,7 @@ let sliderHome1 = function () {
         return false
     }
 
-    $(".home1__slider").slick({
+    $(".home1__slider").not('.slick-initialized').slick({
         arrows: true,
         dots: true,
         autoplay: true,
@@ -162,7 +162,7 @@ let sliderHome2 = function () {
         return false
     }
 
-    $(".home2__slider").slick({
+    $(".home2__slider").not('.slick-initialized').slick({
         arrows: true,
         dots: false,
         autoplay: true,
@@ -177,7 +177,7 @@ let sliderHome3 = function () {
         return false
     }
 
-    $(".home3__slider").slick({
+    $(".home3__slider").not('.slick-initialized').slick({
         arrows: true,
         dots: false,
         autoplay: true,
@@ -192,7 +192,7 @@ let sliderHome4 = function () {
         return false
     }
 
-    $(".home4__bottom--slider").slick({
+    $(".home4__bottom--slider").not('.slick-initialized').slick({
         arrows: true,
         dots: true,
         autoplay: true,
@@ -219,8 +219,7 @@ let sliderHome6 = function () {
     if ($(".home6__slider").length === 0) {
         return false
     }
-
-    $(".home6__slider").slick({
+    $(".home6__slider").not('.slick-initialized').slick({
         arrows: true,
         dots: true,
         autoplay: true,
@@ -234,6 +233,7 @@ let sliderHome6 = function () {
         $('.home6__content-item').removeClass('active')
         $('.home6__content-item[data-slide=' + slick.currentSlide + ']').addClass('active')
     });;
+
 }
 
 
@@ -266,6 +266,7 @@ $(window).on("load", function () {
     sliderHome2()
     sliderHome3()
     sliderHome4()
+
     sliderHome6()
 
     MenuToggleMB()

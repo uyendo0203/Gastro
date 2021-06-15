@@ -233,36 +233,36 @@
     &__item {
         text-align: center;
         margin: 0 0.885vw;
-        width: 9.115vw;
+        width: 11vw;
+        position: relative;
         @media (max-width: 767px) {
             margin: 0 10px;
+            width: auto;
         }
+
         &:hover {
             .img {
-                display: none;
+                transform: translate(-50%, -50%) rotate3d(1, 1, 1, 45deg);
+                z-index: 1;
+                opacity: 0;
+                @media (max-width: 767px) {
+                    opacity: 1;
+                    transform: none;
+                }
             }
             .img-hover {
-                display: block;
+                transform: translate(-50%, -50%) rotate3d(1, 1, 1, 0);
+                z-index: 2;
+                opacity: 1;
+                // animation: test infinite 0.5s;
             }
             .text {
                 opacity: 1;
             }
         }
-        .img {
-            // @media (max-width: 767px) {
-            //     max-width: 180px;
-            //     margin: 0 auto;
-            // }
-        }
-        .img-hover {
-            display: none;
-            @media (max-width: 767px) {
-                display: none !important;
-            }
-        }
         .text {
-            font-size: 1.458vw;
-            margin-top: 1.042vw;
+            font-size: 1.18vw;
+            margin-top: 1.3vw;
             opacity: 0;
             color: #1d344e;
             text-transform: uppercase;
@@ -270,6 +270,48 @@
             @media (max-width: 767px) {
                 opacity: 1;
                 font-size: 14px;
+            }
+        }
+        .img {
+            @media (max-width: 767px) {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    }
+    &__item--img {
+        position: relative;
+        width: 12.5vw;
+        height: 9.115vw;
+        @media (max-width: 767px) {
+            width: auto;
+            height: auto;
+        }
+        .img,
+        .img-hover {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .img {
+            transition: all 0.3s ease-in;
+            z-index: 2;
+            width: 9.115vw;
+            margin: 0 auto;
+            @media (max-width: 767px) {
+                width: auto;
+            }
+        }
+        .img-hover {
+            margin: 0 auto;
+            transition: all 0.2s ease-in;
+            z-index: 1;
+            opacity: 0;
+            width: 11.719vw;
+            transform: translate(-50%, -50%) rotate3d(1, 1, 1, 90deg);
+            @media (max-width: 767px) {
+                width: auto;
             }
         }
     }

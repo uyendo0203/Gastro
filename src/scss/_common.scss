@@ -516,14 +516,16 @@ button {
 
             &.active,
             &:hover {
-                &::before {
-                    background-color: #fff;
-                    height: 0.052vw;
-                    width: 100%;
-                    bottom: 1px;
-                    left: 50%;
-                    @include transform(translateX(-50%));
-                }
+                font-family: $SVN-Gotham-Medium;
+
+                // &::before {
+                //     background-color: #fff;
+                //     height: 0.052vw;
+                //     width: 100%;
+                //     bottom: 1px;
+                //     left: 50%;
+                //     @include transform(translateX(-50%));
+                // }
             }
         }
 
