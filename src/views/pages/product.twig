@@ -1,0 +1,73 @@
+{% set page_title = 'Gastro - Product' %}
+{% extends "../elements/_base.twig" %}
+
+{% block content %}
+
+{% include "../elements/_header.twig" %}
+<div class="main_content product-page">
+    <div class="product1">
+        <div class="product1__wrap">
+            <div class="product1__content">
+                <div class="breadcumb">
+                    <a class="breadcumb__parent">Trang chủ</a>
+                    <span class="breadcumb__line">/</span>
+                    <a class="breadcumb__current" href="#">Sản phẩm</a>
+                </div>
+                <figure class="product1__logo">
+                    <img src="./assets/images/product-banner-logo.png" alt="">
+                </figure>
+                <h2 class="product1__title">
+                    thực phẩm bảo vệ
+                    <br>
+                    dạ dày khỏi ô nhiễm
+                </h2>
+            </div>
+            <div class="product__tab">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" data-toggle="tab" href="#nav-product-powder">Dạng bột</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-toggle="tab" href="#nav-product-pill">Dạng viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="nav-product-powder" role="tabpanel">
+            <section class="product2">
+                <div class="product2__wrap d-flex flex-wrap">
+                    <div class="product2__slider wow fadeInUp">
+                        <div class="product2__item">
+                            <figure class="img">
+                                <img src="./assets/images/home2-img.png" alt="">
+                            </figure>
+                            <div class="text">dạng viên</div>
+                        </div>
+                        <div class="product2__item">
+                            <figure class="img">
+                                <img src="./assets/images/home2-img.png" alt="">
+                            </figure>
+                            <div class="text">dạng viên</div>
+                        </div>
+                    </div>
+                    <div class="product2__content wow fadeInUp" data-wow-delay=".2s">
+                        <h2 class="product2__title">Gastro NB Plus - Thực phẩm bảo vệ dạ dày khỏi ô nhiễm</h2>
+                        <div class="product2__des">
+                            Giống như mẹ Trái Đất, dạ dày của chúng ta có khả năng bị ô nhiễm. Gastro NB Plus với chiết xuất từ 9 loại thảo dược lành tính (sử dụng được cho trẻ > 5 tuổi) giúp hỗ trợ cải thiện các tình trạng ô nhiễm dạ dạ dày như: chống viêm, giảm đau, giúp làm lành vết loét dạ dày; giúp tăng cường chức năng tiêu hóa, cải thiện tình trạng kém ăn, suy nhược ở người viêm loét dạ dày - tá tràng…
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="tab-pane fade" id="nav-product-pill" role="tabpanel">Tab 2</div>
+    </div>
+    <section class="home5">
+        {% include "../elements/_form.twig" %}
+    </section>
+    <section class="home7">
+        {% include "../elements/_about.twig" %}
+    </section>
+</div>
+{% endblock %}

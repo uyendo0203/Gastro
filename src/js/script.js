@@ -120,7 +120,6 @@ let Menu = function () {
     })
 }
 
-
 let PopupValidateForm = function () {
     var form = [{
         name: '.PopupName',
@@ -141,6 +140,26 @@ let PopupValidateForm = function () {
     validateForm($submit, form);
 }
 
+let GotoForm = function () {
+    $('#home2_to_form').click(function (e) {
+        e.preventDefault()
+        $('html, body').animate({
+            scrollTop: $(".home5").offset().top - 150
+        }, 1000);
+    });
+}
+
+let MenuScrollFixed = function () {
+    let headerHeight = $('.header').height()
+    let windowHeight = $(window).scrollTop()
+    if (windowHeight > (headerHeight + 10)) {
+        $('.header').addClass('fixed')
+    } else {
+        $('.header').removeClass('fixed')
+    }
+}
+
+// home 
 let sliderHome1 = function () {
     if ($(".home1__slider").length === 0) {
         return false
@@ -236,42 +255,45 @@ let sliderHome6 = function () {
 
 }
 
+// product 
+let sliderProduct2 = function () {
+    if ($(".product2__slider").length === 0) {
+        return false
+    }
 
 
-let GotoForm = function () {
-    $('#home2_to_form').click(function (e) {
-        e.preventDefault()
-        $('html, body').animate({
-            scrollTop: $(".home5").offset().top - 150
-        }, 1000);
-    });
-}
-
-let MenuScrollFixed = function () {
-    let headerHeight = $('.header').height()
-    let windowHeight = $(window).scrollTop()
-    if (windowHeight > (headerHeight + 10)) {
-        $('.header').addClass('fixed')
-    } else {
-        $('.header').removeClass('fixed')
+    // > 1 item -> slick 
+    if ($(".product2__item").length > 1) {
+        $(".product2__slider").not('.slick-initialized').slick({
+            arrows: true,
+            dots: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+        });
     }
 }
 
 $(window).on("load", function () {
+    // common 
     $('.loading').removeClass('active')
     new WOW().init();
+    MenuToggleMB()
+    GotoForm()
+    Menu()
 
-
+    // home 
     sliderHome1()
     sliderHome2()
     sliderHome3()
     sliderHome4()
-
     sliderHome6()
 
-    MenuToggleMB()
-    GotoForm()
-    Menu()
+    // product 
+    sliderProduct2()
+
 });
 
 
