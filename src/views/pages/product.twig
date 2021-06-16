@@ -7,7 +7,7 @@
 <div class="main_content product-page">
     <div class="product1">
         <div class="product1__wrap">
-            <div class="product1__content">
+            <div class="product1__content wow fadeIn">
                 <div class="breadcumb">
                     <a class="breadcumb__parent">Trang chủ</a>
                     <span class="breadcumb__line">/</span>
@@ -22,12 +22,15 @@
                     dạ dày khỏi ô nhiễm
                 </h2>
             </div>
+            <figure class="product1__banner-img wow fadeIn">
+                <img src="./assets/images/product-banner-img.png" alt="">
+            </figure>
             <div class="product__tab">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item" role="presentation">
+                    <li class="nav-item wow fadeIn" data-wow-delay="0.1s" role="presentation">
                         <a class="nav-link active" data-toggle="tab" href="#nav-product-powder">Dạng bột</a>
                     </li>
-                    <li class="nav-item" role="presentation">
+                    <li class="nav-item wow fadeIn" data-wow-delay="0.2s" role="presentation">
                         <a class="nav-link" data-toggle="tab" href="#nav-product-pill">Dạng viên</a>
                     </li>
                 </ul>
@@ -53,15 +56,46 @@
                         </div>
                     </div>
                     <div class="product2__content wow fadeInUp" data-wow-delay=".2s">
-                        <h2 class="product2__title">Gastro NB Plus - Thực phẩm bảo vệ dạ dày khỏi ô nhiễm</h2>
-                        <div class="product2__des">
-                            Giống như mẹ Trái Đất, dạ dày của chúng ta có khả năng bị ô nhiễm. Gastro NB Plus với chiết xuất từ 9 loại thảo dược lành tính (sử dụng được cho trẻ > 5 tuổi) giúp hỗ trợ cải thiện các tình trạng ô nhiễm dạ dạ dày như: chống viêm, giảm đau, giúp làm lành vết loét dạ dày; giúp tăng cường chức năng tiêu hóa, cải thiện tình trạng kém ăn, suy nhược ở người viêm loét dạ dày - tá tràng…
-                        </div>
+                        <h2>thành phần</h2>
+                        <p>
+                            <b class="d-block">Mỗi viên nén bao phim:</b>
+                            Cao hỗn hợp 360 mg tương đương với: Đảng sâm 266 mg, bạch truật 266 mg, lá khôi 200 mg, mạch nha 166 mg, mộc hương bắc 133 mg, hương phụ 130 mg, cam thảo bắc 80 mg. Bột Ô tặc cốt 130 mg, bột Hoài sơn 50 mgs
+                        </p>
+                        <p>
+                            <b>Mỗi viên nén bao phim:</b>
+                            Cao hỗn hợp 360 mg tương đương với: Đảng sâm 266 mg, bạch truật 266 mg, lá khôi 200 mg, mạch nha 166 mg, mộc hương bắc 133 mg, hương phụ 130 mg, cam thảo bắc 80 mg. Bột Ô tặc cốt 130 mg, bột Hoài sơn 50 mgs
+                        </p>
                     </div>
                 </div>
             </section>
+            {% include "../elements/_product345.twig" %}
         </div>
-        <div class="tab-pane fade" id="nav-product-pill" role="tabpanel">Tab 2</div>
+        <div class="tab-pane fade" id="nav-product-pill" role="tabpanel">
+            <section class="product2">
+                <div class="product2__wrap d-flex flex-wrap">
+                    <div class="product2__slider wow fadeInUp">
+                        <div class="product2__item">
+                            <figure class="img">
+                                <img src="./assets/images/home2-img.png" alt="">
+                            </figure>
+                            <div class="text">dạng viên</div>
+                        </div>
+                    </div>
+                    <div class="product2__content wow fadeInUp" data-wow-delay=".2s">
+                        <h2>thành phần</h2>
+                        <p>
+                            <b class="d-block">Mỗi viên nén bao phim:</b>
+                            Cao hỗn hợp 360 mg tương đương với: Đảng sâm 266 mg, bạch truật 266 mg, lá khôi 200 mg, mạch nha 166 mg, mộc hương bắc 133 mg, hương phụ 130 mg, cam thảo bắc 80 mg. Bột Ô tặc cốt 130 mg, bột Hoài sơn 50 mgs
+                        </p>
+                        <p>
+                            <b>Mỗi viên nén bao phim:</b>
+                            Cao hỗn hợp 360 mg tương đương với: Đảng sâm 266 mg, bạch truật 266 mg, lá khôi 200 mg, mạch nha 166 mg, mộc hương bắc 133 mg, hương phụ 130 mg, cam thảo bắc 80 mg. Bột Ô tặc cốt 130 mg, bột Hoài sơn 50 mgs
+                        </p>
+                    </div>
+                </div>
+            </section>
+            {% include "../elements/_product345.twig" %}
+        </div>
     </div>
     <section class="home5">
         {% include "../elements/_form.twig" %}

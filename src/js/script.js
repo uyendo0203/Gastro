@@ -294,6 +294,12 @@ $(window).on("load", function () {
     // product 
     sliderProduct2()
 
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if ($(".product2__item").length > 1) {
+            $(".product2__slider").slick('resize');
+        }
+    })
+
 });
 
 
