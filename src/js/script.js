@@ -75,27 +75,6 @@ function validateForm($submit, form) {
     updateView();
 }
 
-function goToByScroll(echo) {
-    let space = 70
-    switch (echo) {
-        case 'gioithieu':
-            space = -30
-            break;
-        case 'dangky':
-            space = -100
-            break;
-        case 'benhlydaday':
-            space = -20
-            break;
-        default:
-            space = -70
-            break;
-    }
-
-    $('html,body').animate({
-        scrollTop: $("#" + echo).offset().top + space,
-    }, 'slow');
-}
 
 let MenuToggleMB = function () {
     $('.header-menu__mb').click(function () {
@@ -104,19 +83,56 @@ let MenuToggleMB = function () {
     })
 }
 
+function goToByScroll(link) {
+
+    let space = 0
+    switch (link) {
+        case 'dangky':
+            space = -100
+            break;
+        case 'lienhe':
+            space = 800
+            break;
+        default:
+            space = 70
+            break;
+    }
+
+    $('html,body').animate({
+        scrollTop: $("#" + link).offset().top + space,
+    }, 'slow');
+
+    $('.header-menu__mb').removeClass('active')
+    $('.header-menu__nav ').removeClass('active')
+
+}
+
 let Menu = function () {
+
+    // on click menu header 
     $('.header-menu__nav a').click(function (e) {
-        e.preventDefault();
 
-        let link = $(this).attr('link')
+        let isBlock = $(this).attr('href').indexOf('#')
 
-        $('.header-menu__nav a').removeClass('active');
-        $('.header-menu__nav a[link="' + link + '"]').addClass('active');
+        if (isBlock != -1) { //true : is block
+
+            if (location.pathname == '/') {
+                e.preventDefault();
+
+                let link = $(this).attr('link')
+
+                $('.header-menu__nav a').removeClass('active');
+                $('.header-menu__nav a[link="' + link + '"]').addClass('active');
 
 
-        if (link != '' && link != undefined) {
-            goToByScroll(link);
+                if (link != '' && link != undefined) {
+                    goToByScroll(link);
+                }
+            } else {
+                goToByScroll(link, location.pathname);
+            }
         }
+
     })
 }
 
@@ -300,6 +316,17 @@ $(window).on("load", function () {
         }
     })
 
+    // goto block when onLoad 
+    let temp = location.href.indexOf('#')
+    if (temp != -1) {
+        let link = location.hash.split('#')[1];
+        goToByScroll(link);
+
+        setTimeout(function () {
+            $('.header-menu__nav a').removeClass('active');
+            $('.header-menu__nav a[link=' + link + ']').addClass('active');
+        }, 1000)
+    }
 });
 
 
@@ -308,13 +335,7 @@ var sections = $('section')
     , nav_text = $('.header-menu__nav')
     , nav_height = nav_text.outerHeight();
 
-$(window).on("scroll", function () {
-
-    // fixed menu 
-    MenuScrollFixed()
-
-
-    // active menu 
+let activeMenuOnScroll = function () {
     var cur_pos = $(this).scrollTop();
     sections.each(function () {
         var top = $(this).offset().top - nav_height,
@@ -325,11 +346,19 @@ $(window).on("scroll", function () {
             sections.removeClass('active');
 
             $(this).addClass('active');
-            nav_text.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+            nav_text.find('a[link="' + $(this).attr('id') + '"]').addClass('active');
         }
     });
+}
+
+$(window).on("scroll", function () {
+
+    // fixed menu 
+    MenuScrollFixed()
+
+    // active menu 
+    activeMenuOnScroll()
+
 });
 
-$(window).on("resize", function () {
-
-});
+$(window).on("resize", function () { });
