@@ -136,23 +136,20 @@ let Menu = function () {
     })
 }
 
-let PopupValidateForm = function () {
+let Home5ValidateForm = function () {
     var form = [{
-        name: '.PopupName',
+        name: '.home5Name',
         validators: ['required']
     }, {
-        name: '.PopupPhone',
+        name: '.home5Phone',
         validators: ['required', 'isNumber', 'minLength', 'maxLength'],
         minLength: 10,
         maxLength: 10,
     }, {
-        name: '.PopupEmail',
-        validators: []
-    }, {
-        name: '.PopupNote',
-        validators: []
+        name: '.home5Email',
+        validators: ['required', 'email']
     }]
-    var $submit = ".popup__button button";
+    var $submit = ".home5__form button";
     validateForm($submit, form);
 }
 
@@ -306,6 +303,8 @@ $(window).on("load", function () {
     sliderHome3()
     sliderHome4()
     sliderHome6()
+
+    Home5ValidateForm()
 
     // product 
     sliderProduct2()
