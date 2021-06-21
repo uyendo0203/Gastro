@@ -143,7 +143,7 @@ let Home5ValidateForm = function () {
         maxLength: 10,
     }, {
         name: '.home5Email',
-        validators: ['required', 'email']
+        validators: []
     }]
     var $submit = ".home5__form button";
     validateForm($submit, form);

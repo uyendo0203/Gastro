@@ -1,0 +1,40 @@
+@mixin title {
+    font-family: $SVN-Gotham-Bold;
+    text-transform: uppercase;
+    font-size: 2.344vw;
+    @media (max-width: 767px) {
+        font-size: 24px;
+    }
+}
+@mixin des {
+    font-family: $SVN-Gotham-Book;
+    font-size: 1.042vw;
+    @media (max-width: 767px) {
+        font-size: 16px;
+    }
+}
+
+.benhly1 {
+    &__bg {
+    }
+    &__wrap {
+    }
+    &__banner {
+    }
+    &__text {
+    }
+    &__title {
+    }
+    &__des {
+    }
+}
+
+.home1__slider,
+.home2__slider,
+.home4__bottom--slider,
+.home6__slider {
+    @include your_slider_wrapper;
+    &.slick-initialized {
+        @include your_slider_wrapper_done;
+    }
+}
