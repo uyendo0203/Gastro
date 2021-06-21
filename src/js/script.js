@@ -116,20 +116,16 @@ let Menu = function () {
 
         if (isBlock != -1) { //true : is block
 
-            if (location.pathname == '/') {
-                e.preventDefault();
+            e.preventDefault();
 
-                let link = $(this).attr('link')
+            let link = $(this).attr('link')
 
-                $('.header-menu__nav a').removeClass('active');
-                $('.header-menu__nav a[link="' + link + '"]').addClass('active');
+            $('.header-menu__nav a').removeClass('active');
+            $('.header-menu__nav a[link="' + link + '"]').addClass('active');
 
 
-                if (link != '' && link != undefined) {
-                    goToByScroll(link);
-                }
-            } else {
-                goToByScroll(link, location.pathname);
+            if (link != '' && link != undefined) {
+                goToByScroll(link);
             }
         }
 
