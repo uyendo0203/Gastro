@@ -138,9 +138,9 @@ let Home5ValidateForm = function () {
         validators: ['required']
     }, {
         name: '.home5Phone',
-        validators: ['required', 'isNumber', 'minLength', 'maxLength'],
-        minLength: 10,
-        maxLength: 10,
+        validators: ['required', 'isNumber'],
+        // minLength: 10,
+        // maxLength: 10,
     }, {
         name: '.home5Email',
         validators: []
