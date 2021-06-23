@@ -19,41 +19,6 @@ ul {
     margin: 0;
     list-style: none;
 }
-@function strip-unit($number) {
-    @if type-of($number) == "number" and not unitless($number) {
-        @return $number / ($number * 0 + 1);
-    }
-
-    @return $number;
-}
-
-@function convertPx($px) {
-    $result: 0;
-    $result: strip-unit(($px * 100)/1920);
-    @return $result + vw;
-}
-
-@function str-split($string, $separator) {
-    // empty array/list
-    $split-arr: ();
-    // first index of separator in string
-    $index: str-index($string, $separator);
-    // loop through string
-    @while $index != null {
-        // get the substring from the first character to the separator
-        $item: str-slice($string, 1, $index - 1);
-        // push item to array
-        $split-arr: append($split-arr, $item);
-        // remove item and separator from string
-        $string: str-slice($string, $index + 1);
-        // find new index of separator
-        $index: str-index($string, $separator);
-    }
-    // add the remaining string to list (the last item)
-    $split-arr: append($split-arr, $string);
-
-    @return $split-arr;
-}
 
 .benhly1 {
     position: relative;
@@ -62,7 +27,7 @@ ul {
     }
 
     .breadcumb {
-        margin-left: 18.75vw;
+        margin-left: vw(360px);
         position: absolute;
         top: 5.469vw;
         @media (max-width: 767px) {
