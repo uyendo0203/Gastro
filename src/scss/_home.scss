@@ -352,7 +352,7 @@
     &__top {
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-image: url(../assets/images/home4-bg1.png);
+        background-image: url(../assets/images/home4-bg1.jpg);
 
         @media (max-width: 767px) {
             background-image: none;
@@ -539,8 +539,10 @@
     &__bottom--title {
         @include title();
         margin-bottom: 1.823vw;
+        margin-top: 0.5vw;
         font-size: 1.75vw;
         @media (max-width: 767px) {
+            margin-top: 10px;
             margin-bottom: 10px;
         }
     }
