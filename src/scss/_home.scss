@@ -352,7 +352,7 @@
     &__top {
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-image: url(../assets/images/home4-bg1.jpg);
+        background-image: url(../assets/images/home4-bg1.png);
 
         @media (max-width: 767px) {
             background-image: none;
@@ -398,7 +398,7 @@
     &__bottom {
         background-position: center;
         background-size: 100% 100%;
-        background-image: url(../assets/images/home4-bg2.png);
+        background-image: url(../assets/images/home4-bg2.jpg);
         padding-left: 8.333vw;
         @media (max-width: 767px) {
             padding: 0;
