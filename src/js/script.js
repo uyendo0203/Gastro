@@ -168,12 +168,16 @@ let MenuScrollFixed = function () {
     }
 }
 
+
 // home 
+$(".home1__slider .img").hide()
+$(".home1__slider .img:first-child").show()
 let sliderHome1 = function () {
     if ($(".home1__slider").length === 0) {
         return false
     }
 
+    $(".home1__slider .img").show()
     $(".home1__slider").not('.slick-initialized').slick({
         arrows: true,
         dots: true,
@@ -183,7 +187,6 @@ let sliderHome1 = function () {
         slidesToScroll: 1,
         infinite: true,
     });
-
 }
 let sliderHome2 = function () {
     if ($(".home2__slider").length === 0) {
