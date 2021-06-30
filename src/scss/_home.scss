@@ -226,6 +226,7 @@
             .home3__item--img .img-hover {
                 padding-left: 13px;
                 padding-right: 14px;
+                @include transform(translate(-50%, -50%) rotate3d(1, 1, 1, 0) scale(0.95));
             }
         }
     }

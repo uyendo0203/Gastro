@@ -291,9 +291,9 @@ let sliderProduct2 = function () {
 $(window).on("load", function () {
     // common 
 
-    setTimeout(() => {
-        $('#btn-dangky').trigger("click");
-    }, 500);
+    // setTimeout(() => {
+    //     $('#btn-dangky').trigger("click");
+    // }, 500);
 
     $('.loading').removeClass('active')
     new WOW().init();
